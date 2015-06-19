@@ -1,0 +1,19 @@
+function isEven (num){
+  if (num === 0){
+  	return true;
+  } else if (num === 1) {
+  	return false;
+  } else if (num < 0){
+    //if a negative number, recursion keeps adding 2 until it gets to 1 or 0
+    return isEven(num+2);
+  } else {
+    //recursion keeps subtracting 2 until I get to 0 or 1
+  	return isEven(num-2);
+  }
+}
+console.log(isEven(50));
+// → true
+console.log(isEven(75));
+// → false
+console.log(isEven(-1));
+// → ??
