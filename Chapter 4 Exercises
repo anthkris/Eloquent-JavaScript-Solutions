@@ -1,0 +1,66 @@
+// Your code here.
+
+//Sum of a Range
+function range (start, end, step){
+  var rangeArray = [];
+  //create condition if step should be undefined
+  if (step === undefined) step = 1;
+  //author solution does not include this
+  var larger = Math.max(start, end);
+  var smaller = Math.min(start, end);
+  if (step < 0) {
+  	for (var i = larger; i >= smaller; i+=step){
+        rangeArray.push(i);
+      }
+  } else {
+    for (var i = smaller; i <= larger; i+=step){
+      rangeArray.push(i);
+    }
+  }
+  return rangeArray;
+}
+
+
+function sum (arr){
+  var arrSum = 0;
+  for (var i = 0; i<arr.length; i++){
+  arrSum += arr[i];
+  }
+  return arrSum;
+}
+//Test cases
+console.log (range(1, 10));
+console.log(sum(range(1, 10)));
+// → 55
+console.log(range(5, 2, -1));
+// → [5, 4, 3, 2]
+
+
+// Reverse Arrays
+function reverseArray (arr){
+	var reversedArray = [];
+  var originalLength = arr.length; 
+  for(var i = 0; i < originalLength; i++){
+  	reversedArray.push(arr.pop());
+  }
+  return reversedArray;
+}
+
+function reverseArrayInPlace (arr){
+	var originalLength = Math.floor(arr.length/2); 
+  
+ 	for(var i = 0, j = arr.length-1-i; i < originalLength; i++, j--){
+      	var swap = arr[i];
+  		arr[i] = arr[j];
+      arr[j] = swap;
+      
+  }
+  
+}
+//test cases
+console.log(reverseArray(["A", "B", "C"]));
+// → ["C", "B", "A"];
+var arrayValue = [1, 2, 3, 4, 5];
+reverseArrayInPlace(arrayValue);
+console.log(arrayValue);
+// → [5, 4, 3, 2, 1]
